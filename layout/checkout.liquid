@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-55L9KFH');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+
+    <style>
+      /* -- delivery notice at checkout --*/
+    .deliveryNotice {
+      border: 1px solid red;
+      padding: 10px;
+      margin: 0 0 10px 0;
+    }
+    .order-summary__section--product-list{
+      min-height: unset !important;
+      overflow: visible !important;
+    }
+    .order-summary__sections{
+      height: auto !important;
+      margin-bottom: 50px;
+    }
+    .main__content .cus-txt{
+      display: none;
+    }
+    .main__content.show_gift .cus-txt{      
+      display: block;
+    }
+    .show_gift .cus-txt p{
+      color: red;
+      margin-top: 10px;    
+      max-width: 80%;
+    }
+    </style>
+    
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55L9KFH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+
+    {{ order_summary_toggle }}    
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+
+            {{ alternative_payment_methods }}
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+            <div class="cus-txt">
+              <p>*Gifts will be included in your shipment only if the specified spending threshold has been met.</p>
+            </div>           
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            <div class="yotpo-widget-instance" data-yotpo-instance-id="83776"></div>
+            
+            {{ content_for_order_summary }}
+            <div class="deliveryNotice">
+              <p style="font-weight: bold;">Delivery Times Notice:</p>
+              <p>Delivery times are affected if orders are placed after business hours and if placed on the weekends or busy holidays.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    {{ tracking_code }}
+    
+    {% include 'smsbump_checkout_marketing_subscription' %}
+    
+  <script id="upsellplus_data">Shopify.customer_tags_upsell = {{ checkout.customer.tags | json }};Shopify.customer_address_upsell = {{ checkout.customer.default_address | json }}</script>
+  <script src="https://app.upsellplus.com/script/upsellplus_widget.js"></script>
+
+<!-- LOYALTY CODE START POST CHECKOUT -->
+ <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j_KKNp0CfrhyRCRXcUyTsg" async></script>
+  <!-- Initial CSS to hide the module -->
+  <style type="text/css">
+      .yotpo-checkout-hide {
+          display: none;
+      }
+  </style>
+  <!-- module inside container -->
+  <div class="yotpo-refer-popup-container yotpo-checkout-hide">
+   <div class="yotpo-widget-instance" data-yotpo-instance-id="105259"></div>
+  </div>
+  <!-- JS to handle module initiation -->
+  <script type="text/javascript">
+      window.location.href.indexOf("thank_you") !== -1
+          ? document
+                .querySelector(".yotpo-checkout-hide")
+                .classList.remove("yotpo-checkout-hide")
+          : "";
+  </script>
+  <!-- LOYALTY CODE END -->
+
+    
+</body>
+  <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j_KKNp0CfrhyRCRXcUyTsg" async></script>
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // // Step 1: Select the div element by class name
+    // var divElements = document.querySelectorAll('.step[data-step="payment_method"]');
+    // if (divElements.length > 0) {
+    //   var divElement = divElements[0];
+    //   var pElement = document.createElement("p");
+    //   pElement.classList.add('custom-txt');
+    //   pElement.textContent = "*Gifts will be included in your shipment only if the specified spending threshold has been met.";
+    //   divElement.appendChild(pElement);
+    // } else {
+    //   console.error("No element found with the specified class name.");
+    // }  
+
+      // Step 1: Select the element with class 'step' and attribute 'data-step="payment_method"'
+var stepElement = document.querySelector('.step[data-step="payment_method"]');
+
+// Step 2: Check if the element is found
+if (stepElement) {
+  // Step 3: Get the main parent div
+  var mainParentDiv = stepElement.closest('.main__content');
+
+  // Step 4: Check if the main parent div is found
+  if (mainParentDiv) {
+    // Step 5: Add the desired class to the main parent div
+    mainParentDiv.classList.add('show_gift');
+  } else {
+    console.error("Main parent div not found.");
+  }
+} else {
+  console.error("Element with class 'step' and attribute 'data-step=\"payment_method\"' not found.");
+}
+
+    });
+     
+  </script>
+</html>

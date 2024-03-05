@@ -1,0 +1,710 @@
+/*// =============================================================================
+// Ella Custom CSS - Customize The Style For Layout
+// =============================================================================
+
+// =============================================================================
+//
+// IMPORTANT DISCLAIMER
+// Shopify is notifying shop owners about the need to convert scss files to css files.
+// Please use only CSS to style the layout.
+//
+// =============================================================================*/
+
+/*// =============================================================================
+// START -> Custom Mega Menu for Main Menu
+// =============================================================================*/
+.custom_tabs .col-md-12 nav { width: 30%; }
+.custom_tabs .col-md-12 { display: flex; align-items: flex-start; }
+.custom_tabs .col-md-12 .tab-content { width: 70%; border: 0 !important; background: white !important; }
+.custom_tabs .col-md-12 nav ul { padding: 0; flex-direction: column; border: 0; }
+.custom_tabs .col-md-12 nav ul>.nav-item { width: 100%; font-size: 20px; font-weight: 400; border: 0;}
+.custom_tabs .col-md-12 nav ul>.nav-item a { width: 100%; display: inline-block; color: inherit; font-size: 20px; font-weight: 400; border: 0; padding: 10px 0; }
+.custom_tabs .col-md-12 nav ul>.nav-item a.active { font-weight: 600; }
+.custom_tabs .col-md-12 .tab-content .active { display: block !important; }
+.custom_tabs .col-md-12 .tab-content .tab-pane { padding: 10px; height: 100%;}
+.custom_tabs .col-md-12 .tab-content .tab-pane .btn { font-size: 18px; padding: 6px 50px; background: #212b36; color: white; margin-top: 11px; }
+.custom_tabs .col-md-12 .tab-content .tab-pane p { font-size: 20px; }
+.customer.account { background: #fcfaf9; }
+.custom_account>.row:not(.custom_tabs) { align-items: baseline; padding-bottom: 50px; }
+.custom_account>.row p { margin: 0;}
+.custom_account>.row .col-md-4 p {text-align: right;font-size: 25px;}
+.custom_account>.row .col-md-4 p>a { font-size: inherit; text-decoration: underline !important; }
+.custom_tabs .col-md-12 .tab-content h2 { font-size: 40px; padding-bottom: 20px; }
+.custom_tabs .tab-content .inner_col {padding-block: 30px;}
+.custom_tabs .tab-content .inner_col h4 { font-size: 23px; font-weight: 500; text-transform: uppercase; }
+.custom_tabs .tab-content .inner_col p { font-size: 19px; }
+.profile-card>div { font-size: 25px; line-height: 1; padding: 5px 0;}
+.custom_tabs .col-md-12 .tab-content .tab-pane h1 { line-height: 1; margin-bottom: 15px;}
+.custom_account { padding-top: 100px;}
+.custom_tabs .col-md-12 .tab-content .account-content .account-action { margin: 0 auto; }
+.custom_tabs .col-md-12 .tab-content .account-product { border: 0; padding: 0; }
+.custom_tabs .col-md-12 .tab-content .account-product .account-product-detail>li { font-size: 18px; }
+.custom_tabs .col-md-12 .tab-content .account-product .account-product-title { display: none; }
+.account-page.my-account-page { background: #fcfaf9; height: 100vh;}
+.custom_menu_brand .menu-dropdown__wrapper .row { width: 100%; }
+.custom_menu_brand .menu-dropdown__wrapper .row .site-nav-title .site-nav {width: 100%;margin-bottom: 0;position: unset !important;padding-bottom: 10px;}
+.custom_menu_brand .menu-dropdown__wrapper .row .site-nav-title { height: 498px; overflow-y: scroll; font-size: 18px; margin-bottom: 40px;}
+.custom_menu_brand .menu-dropdown__wrapper .row .inner_col .brands_grids_list { list-style: none; padding: 0; display: flex; align-items: center; justify-content: flex-start; gap: 1rem; flex-wrap: wrap; }
+.custom_menu_brand .menu-dropdown__wrapper .row .inner_col .brands_grids_list li.grid_item { width: 24%; border: 1px solid #c1c1c1; padding: 10px; height: 120px; }
+.custom_menu_brand .menu-dropdown__wrapper .row .inner_col .brands_grids_list li.grid_item a.image { width: 100%; display: inline-block; height: 100%; }
+.custom_menu_brand .menu-dropdown__wrapper .row .inner_col .brands_grids_list li.grid_item a.image>img { width: 100%; height: 100%; }
+.custom_menu_brand .menu-dropdown__wrapper .row .site-nav-title::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); background-color: #F5F5F5; }
+.custom_menu_brand .menu-dropdown__wrapper .row .site-nav-title::-webkit-scrollbar{ width: 10px; background-color: #F5F5F5; }
+.custom_menu_brand .menu-dropdown__wrapper .row .site-nav-title::-webkit-scrollbar-thumb { background-color: #000000; border: 2px solid #555555; }
+.menu__title { font-weight: 600; font-size: 20px; font-family: 'Lato'; margin: 0 0 20px; display: block; }
+.custom_menu_brand .menu-dropdown__wrapper .row .inner_col { max-width: 90%; margin: 0 auto; }
+.custom_menu_brand .menu-dropdown__wrapper .row .inner_col .brands_grids_list li.grid_item:hover { border: 1px solid #000000; }
+a[href="/pages/brands"] > .text:last-child {
+    text-decoration-line: underline;
+    font-weight: 800;
+    color: #c161a1;
+}
+
+/*// =============================================================================
+// START -> Gift Page
+// =============================================================================*/
+body.template-page.holiday-gift-guide .img-box .image img {
+      z-index:0 !important;
+}
+
+/*// =============================================================================
+// START -> Global
+// =============================================================================*/
+/*html {overflow-x: hidden;}*/
+@media screen and (max-width: 749px) {
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
+  }   
+}
+.desktopHide{display:none;}
+@media screen and (max-width:767px){
+  .desktopHide{
+    display:block;
+    width: 50%;
+    float: left;
+    padding-bottom: 14px !important;
+  }
+}
+.breadcrumb {background-color: transparent;}
+
+/*// =============================================================================
+// START -> Home Page
+// =============================================================================*/
+/* ----- for Spotlight hover underline */
+.spotlight-block .halo-block-header h3.title span {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 0 0 10px;
+}
+
+.spotlight-block .halo-block-header h3.title span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #000;
+    display: inline-block;
+    width: 40%;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+}
+
+.spotlight-block .halo-block-header h3.title span:hover:after {
+    width: 100%;
+}
+
+/* ----- for Section headers hover underline */
+.halo-block.halo-product-block .halo-block-header h3.title span {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 0 0 10px;
+}
+
+.halo-block.halo-product-block .halo-block-header h3.title span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #000;
+    display: inline-block;
+    width: 40%;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+}
+
+.halo-block.halo-product-block .halo-block-header h3.title span:hover:after {
+    width: 59%;
+}
+
+.brands-block.brands-slider .halo-block-header h3.title span {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 0 0 10px;
+}
+
+.brands-block.brands-slider .halo-block-header h3.title span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #000;
+    display: inline-block;
+    width: 35%;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+}
+
+.brands-block.brands-slider .halo-block-header h3.title span:hover:after {
+    width: 50%;
+}
+
+.brand-slider .brands-block .halo-block-header h3.title span {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 0 0 10px;
+}
+
+.brand-slider .brands-block .halo-block-header h3.title span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #000;
+    display: inline-block;
+    width: 35%;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+}
+
+.brand-slider .brands-block .halo-block-header h3.title span:hover:after {
+    width: 50%;
+}
+
+.featured-brands-section .halo-block-header h3.featured-brands-section-title span {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 0 0 10px;
+}
+
+.featured-brands-section .halo-block-header h3.featured-brands-section-title span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #000;
+    display: inline-block;
+    width: 35%;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+}
+
+.featured-brands-section .halo-block-header h3.featured-brands-section-title span:hover:after {
+    width: 50%;
+}
+
+.featured-blog-block .halo-block-header h3.title span {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 0 0 10px;
+}
+
+.featured-blog-block .halo-block-header h3.title span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #000;
+    display: inline-block;
+    width: 35%;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+}
+
+.featured-blog-block .halo-block-header h3.title span:hover:after {
+    width: 50%;
+}
+
+ul.list-product-tabs li button.tab-links.active {display: none;}
+.halo-block-header .title .text {background: transparent;}
+
+/* ----- for Featured Products on mobile */
+@media (max-width: 551px) {
+  .featured-brands-section {margin:20px 0}
+  .featured-brands-section .halo-row.column-3 .halo-item {width: 100%;}
+}
+
+.section-block-template--20644064952343__1632304586ad9b5b3b {border-bottom: 1px solid #ebebeb;}
+.sections-custom-skinConcern-block {border-bottom: 1px solid #ebebeb;}
+.article-card__info.text-left {min-height: 270px;}
+.article-card__image-wrapper {border: 1px solid #dbdbdb;}
+
+/*// =============================================================================
+// START -> Collection page
+// =============================================================================*/
+.template-collection .card-price span.price-item.price-item--regular {font-size: 20px!important;}
+.template-collection .card-title {
+    min-height: 43px;
+    font-size: 14px!important;
+}
+
+/* ----- For Hover-over Highlights */
+@media (max-width: 1024px) {
+ .product-metafield-hover {
+    display: none;
+  } 
+}
+@media (min-width: 1025px) {
+  .product-metafield-hover {
+    display: none;
+    position: absolute;
+    top: -500px;
+    left: 50%;
+    z-index: 200;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 4px;
+    background-clip: padding-box;
+    transform: translate(-50%,-110%);
+    box-shadow: 0 6px 14px #e0e0eb;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    filter: alpha(opacity=0);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .product:hover .product-metafield-hover {
+      display: block;
+      -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+      filter: alpha(opacity=100);
+      opacity: 1;
+      transition: all .2s ease-in-out;
+  }
+  .product .product-metafield-hover {
+      position: relative;
+      color: inherit;
+      background-color: #fff;
+      padding: 8px;
+      border-radius: 4px;
+      background-clip: padding-box;
+    
+  }
+  .product-metafield-hover ul li {
+    font-size: 0.7em;
+  }
+  
+  /* added this rule because the hover keeps pushing products down */
+  .collection .productListing li.product {
+    /* max-height: 530px; */
+    min-height: 560px;
+    max-height: 560px;
+    height: 100%;
+  }
+  /* added this rule because the makeup page has additional attributes */
+  .template-collection.make-up .collection .productListing li.product {
+    min-height: 560px;
+    max-height: 610px;
+  }
+  .template-collection.make-up .card-information {
+    min-height: 272px;
+  }
+}
+
+/* ----- For Product Sub Collection Image Block */
+img.collection_sub_banner_desktop.small-hide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 990px) {
+  .large-up-hide {
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 749px) {
+  .small-hide {
+    display: none!important;
+  }    
+}
+
+li.subbanner.product {
+    width: 50% !important;
+}
+
+@media (max-width: 749px) {
+  li.subbanner.product {
+    width: 100% !important;
+  }
+}
+/* ----- Display Discount Metafield Code on products on Vendor and Non-vendor specific Collection Pages */
+.collection-discount-display {
+    background: #000;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+}
+/* ----- Sidebar Brand Menu */
+button.viewMoreBtn {
+    width: 50%;
+    background: none;
+    border: 1px solid;
+    padding: 5px;
+}
+
+/* ----- Collection Sub-list */
+.collection-sub-list .item a {
+    display: flex !important;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.obagi-skin-care-products.collection-sub-list .item a {font-size: 16px !important;font-weight:600}
+.collection-sub-list .item a {font-size: 16px!important;font-weight:600}
+.collection-sub-list {text-align: center !important;}
+
+/*// =============================================================================
+// END -> Collection page
+// =============================================================================*/
+
+/*// =============================================================================
+// START -> Product Page
+// =============================================================================*/
+quadpay-widget {display: block !important;}
+square-placement {display: block !important;}
+
+/* ----- START reCharge widget */
+/* Styles for ReCharge when Block was enabled on Theme Editor
+.rc-widget input {
+	display: block;
+    -webkit-appearance: radio;
+    -moz-appearance: inherit;
+    appearance: auto;
+	clip: auto;
+}
+
+.rc-radio__label {
+    margin-left: 25px !important;
+    font-size: 18px;
+}
+
+.rc-selling-plans-dropdown__select {font-size:16px;}
+.rc-selling-plans-dropdown__select option {font-size:16px;}
+.rc-radio .rc-radio__input {accent-color: black;}
+
+.rc-template__radio {
+    border: 1px solid #a09f9f;
+    border-radius: 3px;
+}
+
+label.rc-radio.rc-radio--active {background-color: #dbc3bc !important;}
+.rc-selling-plans {background-color: #dbc3bc !important;}
+*/
+/* Styles for ReCharge when Block was enabled on Theme Editor */
+.rc-template {
+    border: 1px solid #a09f9f;
+    border-radius: 3px;
+}
+
+.rc-widget input {
+	display: block;
+    -webkit-appearance: radio;
+    -moz-appearance: inherit;
+    appearance: auto;
+	clip: auto;  
+    height: 16px;
+    width: 19px;
+    margin: 10px 0;
+}
+
+.rc-radio__label {margin-left: 25px !important;}
+.rc-template__legacy-radio .rc-radio.rc-option__subsave {padding-bottom: 10px !important;}
+.rc-template__legacy-radio .rc-radio+.rc-radio {padding-top: 5px !important;}
+
+
+/* ----- END reCharge widget */
+
+
+.desktopIconTextContainer{
+  width: calc(100% - 100px);
+  margin-left:auto;
+  padding-left:50px;
+  display:flex;
+  column-gap:30px;
+  flex-wrap:wrap;
+}
+
+@media screen and (max-width: 767px) {
+.desktopIconTextContainer {display: none;}
+}
+
+@media (min-width: 992px) {
+  .productView-soldProduct {
+    margin: 0 0 0 5px !important;
+  }
+}
+
+.outer_highlights.mb-15 {
+    padding-top: 10px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.productView-soldProduct .text {color: #000 !important;font-weight: 600 !important;}
+
+
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+svg.loyaltyPointsMessage_sparkle {
+    animation: rotate 2s linear 3; /* Rotates thrice */
+}
+
+/* ----- START Monk Embedded Frequently Bought Together */
+button.MButton__MButtonCon-u1ld7q-0.eRqagR.mr-fbt-add-button.mr-button {
+    background-color: #000 !important;
+    color: #fff !important;
+    text-transform: uppercase;
+}
+
+div#mr-div-embedded-prp-fbt-page {
+    border: 1px solid #bfb3b3;
+    padding: 15px;
+}
+
+.MText__MTextCon-he5hrr-0.fLgqxk.mr-embedded-widget__offer-header.mr-text {
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+  /*.shopify-block.shopify-app-block {
+    float: inline-end;
+  }*/
+}
+
+/* ----- START Custom Liquid Code Section for SkinMedica */
+.b-benefits {
+    background-color: #eed9d3;
+    position: relative;
+}
+
+.b-product_additional_info {
+    background-color: #f7f7f8;
+}
+
+.b-product_additional_info-inner {
+    margin: 0 auto;
+    max-width: 1440px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 35px;
+    padding-top: 35px;
+}
+
+.b-product_additional_info-img_wrap {
+    display: flex;
+    height: 420px;
+}
+
+.b-product_additional_info-img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.b-product_additional_info-content h3 {
+    font-variant-numeric: lining-nums;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 25px;
+}
+
+.b-product_additional_info-content ul {
+    font-weight: 300;
+    line-height: normal;
+    font-size: 18px;
+    list-style: outside;
+    margin-bottom: 15px;
+    padding-left: 16px;
+}
+
+.b-product_additional_info-content ul {
+    padding-left: 22px;
+}
+
+.b-product_additional_info-content li {
+    padding-left: 22px;
+}
+
+.b-product_additional_info-content ul li p:nth-child(1) {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .b-product_additional_info-inner {
+        padding-bottom: 45px;
+        padding-top: 45px;
+    }
+
+    .b-product_additional_info:not(.m-long_text) .b-product_additional_info-inner 
+    { display: flex; }
+
+    .b-product_additional_info-img_wrap 
+    {
+        flex: 0 0 39.1%;
+        height: 671px;
+        margin-right: 50px;
+    }
+
+    .b-product_additional_info:not(.m-long_text) .b-product_additional_info-content 
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .l-pdp-supplementary h3 
+    {
+        font-size: 38px;
+        line-height: 48px;
+    }
+}
+
+.b-results {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.b-results-inner {
+    margin: 0 auto;
+    max-width: 1440px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.b-results .b-results-title {
+    margin: 0 auto 35px;
+    font-size: 38px;
+}
+
+.b-results-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b-results-item {
+    flex: 0 0 calc(50% - 8px);
+}
+
+.b-results-image_wrapper {
+    margin-bottom: 15px;
+}
+
+.b-results-image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+}
+
+.b-results p {
+    margin: 0;
+}
+
+.b-results .b-results-caption {
+    font-weight: 300;
+    line-height: normal;
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.l-pdp-supplementary p {
+    font-weight: 300;
+    line-height: normal;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .b-results {
+        margin-bottom: 45px;
+        margin-top: 45px;
+    }
+
+    .b-results-inner {padding: 0 12.5%;}
+
+    .b-results-title h3 {
+        font-size: 38px;
+        line-height: 48px;
+    }
+    
+
+}
+
+@media screen and (max-width: 1199px) {
+  .b-product_additional_info-content h3 {
+      margin-top: 20px;
+    text-align: center;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+  .imageFix {height:820px !important}
+}
+
+.tab-content .toggle-title a {
+    text-transform: uppercase !important;
+    font-size: 20px !important;
+}
+
+.productView-tab .halo-text-format, .productView-tab .halo-text-format ul li, .productView-tab .halo-text-format ol li {color:#000 !important}
+
+/*// =============================================================================
+// END -> Product page
+// =============================================================================*/
+[data-navigation-mobile] .nav-title-mobile {color: #f8f8f8;}
+.nav-title-mobile span.icon-dropdown {
+  color: #000;
+}
+
+@media (min-width: 1024px){
+  .megamenu_style_2 .site-nav-banner .site-nav-banner-item--left .adaptive_height {
+    padding-top: 85%!important;
+  }
+  .megamenu_style_2 .site-nav-banner-item--right .adaptive_height {
+    padding-top: 170%!important;
+  }
+  .megamenu_style_2 .adaptive_height img {
+    object-fit: cover!important;
+    object-position: left bottom!important;
+    max-height: unset!important;
+  }
+}

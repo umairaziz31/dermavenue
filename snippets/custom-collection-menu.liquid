@@ -1,0 +1,69 @@
+<!-- Snippets/custom-collection-menu.liquid -->
+{% comment %}
+Adds Specific Menus to Specific Collection Pages
+{% endcomment %}
+<div class="brands-list sidebarBlock sidebar-categories sidebarBlock-collapse" style="display: block;">
+  {% if collection.handle == 'make-up' %}
+    {% assign menu = linklists['makeup-menu'] %}
+  {% elsif collection.handle == 'skincare' %}
+    {% assign menu = linklists['skincare-menu'] %}
+  {% elsif collection.handle == 'hair-care' %}
+    {% assign menu = linklists['haircare-menu'] %}
+  {% else %}
+    {% assign menu = nil %}
+  {% endif %}
+
+  {% if menu %}
+    
+    <div class="brands-list sidebarBlock sidebar-categories sidebarBlock-collapse" style="display: block;">
+      <div class="sidebarBlock-headingWrapper">
+        <h2 class="sidebarBlock-heading is-clicked">Brands</h2>
+      </div>
+      <div class="sidebarBlock-contentWrapper" style="display: block;">
+        <ul id="itemsList" class="all-categories-list list-unstyled" role="menu">
+          {% for link in menu.links %}
+            <li class="navPages-item" role="menuitem">
+              <a class="navPages-action link link-underline" href="{{ link.url }}">
+                <span class="text">{{ link.title }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        <button class="viewMoreBtn" id="viewMore">+ VIEW MORE</button>
+        <button class="viewMoreBtn viewLess" id="showLess" style="display: none;">- show less</button>
+      </div>
+    </div>
+  {% endif %}
+</div>
+<!-- Collapsible Sidebar End -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var itemsList = document.querySelectorAll("#itemsList li");
+    var viewMoreButton = document.getElementById("viewMore");
+    var showLessButton = document.getElementById("showLess");
+
+    // Initially hide items past a certain point (e.g., the 10th item)
+    for (var i = 10; i < itemsList.length; i++) {
+      itemsList[i].style.display = 'none';
+    }
+
+    // Event listener for 'View More' button
+    viewMoreButton.addEventListener("click", function() {
+      for (var i = 10; i < itemsList.length; i++) {
+        itemsList[i].style.display = 'block';
+      }
+      showLessButton.style.display = 'inline';
+      this.style.display = 'none';
+    });
+
+    // Event listener for 'Show Less' button
+    showLessButton.addEventListener("click", function() {
+      for (var i = 10; i < itemsList.length; i++) {
+        itemsList[i].style.display = 'none';
+      }
+      viewMoreButton.style.display = 'inline';
+      this.style.display = 'none';
+    });
+  });
+</script>

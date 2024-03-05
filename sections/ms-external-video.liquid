@@ -1,0 +1,49 @@
+<!-- Sections/ms-external-video.liquid -->
+{% comment %}
+Add Specific Videos to Specific Products
+{% endcomment %}
+
+{% if product.metafields.custom.vidtop.value != false %}
+  
+<div class="page-width external-video" data-section-id="{{ section.id }}" data-section-type="featured-video-section">
+  {% if section.settings.heading != blank %}
+    <h2 class="text-center">{{ section.settings.heading | escape }}</h2>
+  {% endif %}
+  
+    {% if product.metafields.custom.youtube_id != blank %}
+      <iframe src="//www.youtube.com/embed/{{ product.metafields.custom.youtube_id.value }}?vq=720" width="100%" height="650px" frameborder="0" allowfullscreen></iframe>
+    {% elsif product.metafields.custom.vimeo_id.value %}
+      <div class="full-width-video__video">
+        <iframe class="full-width-video__iframe" src="//player.vimeo.com/video/{{ product.metafields.custom.vimeo_id.value }}?autoplay=1&muted=1&background=1 "width="100%" height="1100" frameborder="0"  allow=fullscreen allow=autoplay></iframe>
+      </div>
+    {% endif %}
+</div>
+
+{% endif %}
+
+{% schema %}
+  {
+    "name": "External Video Section",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Video"
+      },
+      {
+        "type": "video_url",
+        "id": "video_url",
+        "label": "Video link",
+        "accept": ["youtube", "vimeo"]
+      }
+    ],
+    "presets": [
+      {
+        "name": "External Video Section",
+        "category": "Video"
+      }
+    ]
+  }
+{% endschema %}

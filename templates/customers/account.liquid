@@ -1,0 +1,669 @@
+{% comment %}
+    This template will be automatically generated for you if the file doesn't exist,
+    but where's the fun in having no control? Define your layout below.
+
+    The 'layout settings.customer_layout' line is inserted at the top of every customer account template.
+    Your theme's settings determine to use the 'default' or 'theme' customer templates.
+    More info:
+    - http://www.tetchi.ca/shopify-theme-from-scratch-part-11/
+
+    Template note:
+        - All IDs on this template are required to make the form(s) submit properly
+
+    For all available customer liquid tags:
+     - http://docs.shopify.com/themes/liquid-variables/customer
+{% endcomment %}
+
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .account-page .halo-page-content{
+    padding-bottom: 0;
+  }
+  .account-page.my-account-page {
+    background: #fff;
+    height: 100%;
+  }
+  .custom_tabs .col-md-12 nav{
+    border-right: 1px solid #e3e3e3;
+    margin-right: 40px;
+  }
+  .custom_tabs .col-md-12 nav ul{
+    border: 1px solid #e3e3e3;
+    margin-right: 50px;
+  }
+  .custom_tabs .col-md-12 nav ul>.nav-item{
+    border-bottom: 1px solid #e3e3e3;
+  }
+  .custom_tabs .col-md-12 nav ul>.nav-item:last-of-type{
+    border-bottom: 0;
+  }
+  .custom_tabs .col-md-12 nav ul>.nav-item a{
+    padding: 20px;
+    text-align: left;
+  }
+  .custom_tabs .col-md-12 nav ul>.nav-item a.active{
+    background: #f1f1f1;
+  }
+  .custom_tabs .col-md-12 nav ul>.nav-item.active a{
+    background: #f1f1f1;
+  }
+  .top-sec{
+    margin: 0 0 20px;
+  }
+  .top-sec .box-wrap{
+    background: #fee9e8;
+    padding: 30px 20px;
+    margin: 0;
+  }
+  .top-sec .box-wrap .left-txt p{
+    font-size: 16px;
+    margin: 0;
+  }
+  .top-sec .box-wrap .left-txt p span{
+    color: #87c644;
+  }
+  .top-sec .box-wrap .btn{
+    width: 100%;
+    max-width: 90px;
+    font-size: 15px;
+  }
+  .top-sec .box-wrap .btn-outline{
+    background: transparent;
+    border: 1px solid gray;
+  }
+  .top-sec .box-wrap .btn-success{
+    background: #fee9e8;
+    border-color: #fee9e8;
+    color: #000;
+  }
+  .top-sec .name-wrap p{
+    font-size: 16px;
+    margin: 20px 0;
+  }
+  .top-sec .name-wrap p span, .top-sec .name-wrap p a{
+    color: #a39590;
+    text-decoration: none;
+  }
+  .cards ul{
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+  }
+  .cards ul li{
+    width: 33.33%;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 0;
+  }
+  .cards ul li a{
+    border: 1px solid #e3e3e3 !important;
+    box-shadow: 0 0 8px #d5d5d5;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 1rem;
+  }
+  .cards ul li a img{
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    max-width: 50px;
+  }
+  .top-sec.desk-hide{
+    display: none;
+  }
+  .whishlist-contnt{
+    border: 1px solid #e3e3e3 !important;
+    box-shadow: 0 0 8px #d5d5d5;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 1rem;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 0.25rem;
+  }
+  .whishlist-contnt img{
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    max-width: 50px;
+  }
+  .custom_tabs .tab-content .inner_col {
+    padding-block: 15px;
+    height: 100%;
+  }
+  .custom_tabs .tab-content .inner_col .in_box{
+    border: 1px solid #e3e3e3 !important;
+    box-shadow: 0 0 8px #d5d5d5;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 20px;
+    height: 100%;
+  }
+  .cards.card_hide{
+    display: none;
+  }
+
+  @media(max-width: 767px){
+    .custom_account {
+      padding-top: 50px;
+    }
+    .custom_tabs nav {
+      border-right: 0 !important;
+      margin-right: 0 !important;
+    }
+    .custom_tabs .col-md-12 nav ul {
+      margin-right: 0;
+    }
+    .custom_tabs .col-md-12 nav ul>.nav-item a {
+      font-size: 13px;
+      line-height: 18px;
+      padding: 20px 10px;
+    }
+    .custom_tabs .col-md-12 .tab-content{
+      padding-top: 0 !important;
+    }
+    .custom_tabs .col-md-12 .tab-content .tab-pane {
+      padding: 0 !important;
+    }
+    .top-sec .box-wrap .text-right{
+      margin: 20px 0 0;
+      text-align: center !important;
+    }
+    .top-sec .box-wrap .btn-outline{
+      margin-right: 0 !important;
+    }    
+    .cards ul {
+      margin: 0 -5px;
+      justify-content: center;
+    }
+    .cards ul li {
+      width: 50%;
+      padding: 5px;
+    }
+    .cards ul li a{
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 18px;
+      height: 100%;
+      box-shadow: none;
+    }
+    .top-sec.mob-hide{
+      display: none;
+    }
+    .top-sec.desk-hide{
+      display: block;
+    }
+    .cards ul li a img{
+      max-width: 40px;
+    }
+    .custom_tabs .col-md-12 .tab-content h2,
+    .custom_tabs .col-md-12 .tab-content .tab-pane h1{
+      font-size: 25px;
+    }
+    .custom_tabs .col-md-12 .tab-content .tab-pane div,
+    .custom_tabs .col-md-12 .tab-content .tab-pane p{
+      font-size: 14px;    
+    }
+
+    .yotpo-coupons-redemption-widget .yotpo-redemption-options-list {display:block !important;}
+    .yotpo-coupons-redemption-widget .three-in-row .yotpo-redemption-item {width: 100% !important;}
+
+
+  }
+      .customerHelp li {margin: 0 0 15px;}
+</style>
+
+<div class="account-page my-account-page">
+    <div class="container">
+{% comment %}        <h1 class="page-header">
+            {{ 'customer.account.my_account' | t }}
+        </h1>{% endcomment %}
+        <div class="halo-page-content">
+            <div class="custom_account">
+              {% comment %}
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1>HI, {{ customer.first_name }} {{ customer.last_name }}</h1>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Not you ? 
+                            <a href="{{ routes.account_logout_url }}">{{ 'customer.log_out' | t }}</a>
+                        </p>
+                    </div>
+                </div>
+                {% endcomment %}
+                <div class="top-sec desk-hide">
+                  <!--div class="box-wrap row">
+                    <div class="col-md-8 left-txt">
+                      <p>You are eligible to joining the loyalty program. Join now to earn <span>250</span> points!</p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                      <a href="#" class="btn btn-outline mr-4">Learn More</a>
+                      <a href="#" class="btn btn-success">Join Now</a>
+                    </div>
+                  </div-->
+                  <div class="name-wrap">
+                    <p>Hello <span>{{ customer.first_name }} {{ customer.last_name }}</span> (not <span>{{ customer.first_name }} {{ customer.last_name }}</span>? <a href="{{ routes.account_logout_url }}">{{ 'customer.log_out' | t }}</a>)</p>
+                    <p>From your account dashboard you can view your <a href="">recent orders,</a> manage your <a href="">shipping and billing addresses,</a> and <a href="">edit your password and account details</a></p>
+                  </div>
+                </div>
+                <div class="row custom_tabs">
+                    <div class="col-md-12">
+                        <nav>
+                            <ul class="nav side-nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="nav-overview-tab" data-toggle="tab" href="#nav-overview" role="tab" aria-controls="nav-overview" aria-selected="true">Account Overview</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-address-tab" data-toggle="tab" href="#nav-address" role="tab" aria-controls="nav-address" aria-selected="false">Saved Address</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-order_history-tab" data-toggle="tab" href="#nav-order_history" role="tab" aria-controls="nav-order_history" aria-selected="false">Order History</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-wishlist-tab" data-toggle="tab" href="#nav-wishlist" role="tab" aria-controls="nav-wishlist" aria-selected="false">Wishlist</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-subscription-tab" data-toggle="tab" href="#nav-subscription" role="tab" aria-controls="nav-subscription" aria-selected="false">Manage Your Subscription</a>
+                                </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" id="nav-reward-tab" data-toggle="tab" href="#nav-reward" role="tab" aria-controls="nav-reward" aria-selected="false">Reward List</a>
+                                </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" id="nav-help-tab" data-toggle="tab" href="#nav-help" role="tab" aria-controls="nav-help" aria-selected="false">Help</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-Logout-tab" data-toggle="tab" href="#nav-logout" role="tab" aria-controls="nav-logout" aria-selected="false">Logout</a>
+                                </li>
+                            </ul>
+                        </nav>                        
+                          
+                        <div class="tab-content p-3 border bg-light" id="nav-tabContent">
+                          
+                          <div class="cards-sec">
+                            <div class="top-sec mob-hide">
+                              <div class="box-wrap row">
+                                <div class="col-md-8 left-txt">
+                                  <p>You are eligible to joining the loyalty program. Join now to earn <span>250</span> points!</p>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                  <a href="#" class="btn btn-outline mr-4">Learn More</a>
+                                  <a href="#" class="btn btn-success">Join Now</a>
+                                </div>
+                              </div>
+                              <div class="name-wrap">
+                                <p>Hello <span>{{ customer.first_name }} {{ customer.last_name }}</span> (not <span>{{ customer.first_name }} {{ customer.last_name }}</span>? <a href="{{ routes.account_logout_url }}">{{ 'customer.log_out' | t }}</a>)</p>
+                                <p>From your account dashboard you can view your <a href="">recent orders,</a> manage your <a href="">shipping and billing addresses,</a> and <a href="">edit your password and account details</a></p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                            <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
+                                <h2>Account Overview</h2>
+                                {% comment %} <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="inner_col">
+                                          <div class="in_box">
+                                            <h4>My Profile</h4>
+                                            <p>View or edit your personal Information.<br> password, email or saved shade</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="inner_col">
+                                          <div class="in_box">
+                                            <h4>Order History</h4>
+                                            <p>View past orders and details.</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="inner_col">
+                                          <div class="in_box">
+                                            <h4>Saved Address</h4>
+                                            <p>Manage your billing and shipping address.</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="inner_col">
+                                          <div class="in_box">
+                                            <h4>Wishlist</h4>
+                                            <p>Checkout your favourits.</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+                                <div class="cards-sec">
+                            <div class="cards">
+                               <ul class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                                <li class="nav-item active" data-card-id="1">
+                                    <a class="nav-link" id="nav-overview-tab" data-toggle="tab" href="#nav-overview" role="tab" aria-controls="nav-overview" aria-selected="true">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/WhatsApp_Image_2023-09-08_at_9.34.04_PM-removebg-preview.png?v=1694200944">
+                                      Account Overview
+                                    </a>
+                                </li>
+                                <li class="nav-item" data-card-id="2">
+                                    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/profile.svg?v=1693335196">
+                                      My Profile
+                                    </a>
+                                </li>
+                                <li class="nav-item" data-card-id="3">
+                                    <a class="nav-link" id="nav-address-tab" data-toggle="tab" href="#nav-address" role="tab" aria-controls="nav-address" aria-selected="false">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/savedAddress.svg?v=1693335196">
+                                      Saved Address
+                                    </a>
+                                </li>
+                                <li class="nav-item" data-card-id="4">
+                                    <a class="nav-link" id="nav-order_history-tab" data-toggle="tab" href="#nav-order_history" role="tab" aria-controls="nav-order_history" aria-selected="false">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/orderHistory.svg?v=1693335197">
+                                      Order History
+                                    </a>
+                                </li>
+                                <li class="nav-item" data-card-id="5">
+                                    <a class="nav-link" id="nav-wishlist-tab" data-toggle="tab" href="/account#swym-wishlist" role="tab" aria-controls="nav-wishlist" aria-selected="false">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/wishlist.svg?v=1693335196">
+                                      Wishlist
+                                    </a>
+                                </li>
+                                <li class="nav-item" data-card-id="6">
+                                    <a class="nav-link" id="nav-subscription-tab" data-toggle="tab" href="#nav-subscription" role="tab" aria-controls="nav-subscription" aria-selected="false">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/manage.svg?v=1693335196">
+                                      Manage Your Subscription
+                                    </a>
+                                </li>
+                                 <li class="nav-item" data-card-id="7">
+                                    <a class="nav-link" id="nav-reward-tab" data-toggle="tab" href="#nav-reward" role="tab" aria-controls="nav-reward" aria-selected="false">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/rewards.svg?v=1693335196">
+                                      Reward List
+                                    </a>
+                                </li>
+                                 <li class="nav-item" data-card-id="8">
+                                    <a class="nav-link" id="nav-help-tab" data-toggle="tab" href="#nav-help" role="tab" aria-controls="nav-help" aria-selected="false">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/giftCard.svg?v=1693335195">
+                                      Help
+                                    </a>
+                                </li>
+                                <li class="nav-item" data-card-id="9">
+                                    <a class="nav-link" id="nav-Logout-tab" data-toggle="tab" href="#nav-logout" role="tab" aria-controls="nav-logout" aria-selected="false">
+                                      <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/WhatsApp_Image_2023-09-07_at_11.19.05_PM.jpg?v=1694114580">
+                                      Logout
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                          </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <h1>profile.</h1>
+                                <div class="profile-card">
+                                    <div class="profile-name">{{ customer.first_name }} {{ customer.last_name }}</div>
+                                    <div class="profile-email">{{ customer.email }}</div>
+                                    <div class="profile-phone">{{ customer.phone }}</div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab">
+                                <h1>Address</h1>
+                                <div class="account-content">
+                                    {%- if customer.addresses.size > 0 -%}
+                                        <ul class="account-list list-unstyled clearfix">
+                                            {%- for address in customer.addresses limit: 2 -%}
+                                                <li class="account-listItem">
+                                                    <div class="account-product">
+                                                        <h3 class="account-product-title">
+                                                            {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
+                                                            {%- if address == customer.default_address -%}
+                                                                <span class="account-product-text">
+                                                                    {{ 'customer.addresses.default' | t }}
+                                                                </span>
+                                                            {%- endif -%}
+                                                        </h3>
+                                                        <ul class="account-product-detail list-unstyled">
+                                                            <li>{{ address.address1 }}</li>
+                                                            <li>{{ address.address2 }}</li>
+                                                        </ul>
+                                                        {%- if address.zip or address.country -%}
+                                                            <ul class="account-product-detail list-unstyled">
+                                                                <li>
+                                                                    <span class="account-product-label">{{ 'customer.addresses.zip' | t }}: </span>
+                                                                    {{ address.zip | upcase }}
+                                                                </li>
+                                                                <li>
+                                                                    <span class="account-product-label">{{ 'customer.addresses.country' | t }}: </span>
+                                                                    {{ address.country }}
+                                                                </li>
+                                                            </ul>
+                                                        {%- endif -%}
+                                                        <br>
+                                                        <br>
+                                                        <h3>Phone:</h3>
+                                                        {%- if address.phone -%}
+                                                            <ul class="account-product-detail list-unstyled">
+                                                                <li>{{ address.phone }}</li>
+                                                            </ul>
+                                                        {%- endif -%}
+                                                    </div>
+                                                </li>
+                                            {%- endfor -%}
+                                        </ul>
+                                        <div class="account-action">
+                                            <a href="{{ routes.account_addresses_url }}" class="button button--primary">
+                                                <span class="text">{{ 'customer.account.view_addresses' | t }} <span class="count">{{ customer.addresses_count }}</span></span>
+                                            </a>
+                                        </div>
+                                    {%- else -%}
+                                        <div class="account-desc text-left">
+                                            <svg enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="25" cy="25" fill="none" r="24" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><rect fill="none" height="50" width="50"/><path d="M23.779,16.241c-0.216,0-0.357-0.144-0.357-0.359v-2.618c0-0.215,0.142-0.359,0.357-0.359h2.439  c0.215,0,0.359,0.144,0.359,0.359v2.618c0,0.215-0.145,0.359-0.359,0.359H23.779z M23.852,37.293c-0.215,0-0.358-0.143-0.358-0.358  V20.473c0-0.215,0.144-0.359,0.358-0.359h2.295c0.216,0,0.359,0.144,0.359,0.359v16.462c0,0.216-0.144,0.358-0.359,0.358H23.852z"/></svg> {{ 'customer.addresses.none' | t }}
+                                        </div>
+                                        <div class="account-action">
+                                            <a href="{{ routes.account_addresses_url }}" class="button button--primary">
+                                            {{ 'customer.account.view_addresses' | t }} <span class="count">{{ customer.addresses_count }}</span>
+                                            </a>
+                                        </div>
+                                    {%- endif -%}
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-order_history" role="tabpanel" aria-labelledby="nav-order_history-tab">
+                                <h1>Order History</h1>
+                                <div class="account-content table-responsive">
+                                    {% paginate customer.orders by 20 %}
+                                        {%- if customer.orders.size > 0 -%}
+                                            <table role="table" class="table table-striped table-bordered order-history">
+                                                <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
+                                                <thead role="rowgroup">
+                                                    <tr role="row">
+                                                        <th id="ColumnOrder" scope="col" role="columnheader">
+                                                            {{ 'customer.orders.order_number' | t }}
+                                                        </th>
+                                                        <th id="ColumnDate" scope="col" role="columnheader">
+                                                            {{ 'customer.orders.date' | t }}
+                                                        </th>
+                                                        <th id="ColumnPayment" scope="col" role="columnheader">
+                                                            {{ 'customer.orders.payment_status' | t }}
+                                                        </th>
+                                                        <th id="ColumnFulfillment" scope="col" role="columnheader">
+                                                            {{ 'customer.orders.fulfillment_status' | t }}
+                                                        </th>
+                                                        <th id="ColumnTotal" scope="col" role="columnheader">
+                                                            {{ 'customer.orders.total' | t }}
+                                                        </th>
+                                                        <th id="ColumnTotal" scope="col" role="columnheader">
+                                                            Reorder
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody role="rowgroup">
+                                                    {%- for order in customer.orders -%}
+                                                        <tr role="row">
+                                                            <td
+                                                                id="RowOrder"
+                                                                role="cell"
+                                                                headers="ColumnOrder"
+                                                                data-label="{{ 'customer.orders.order_number' | t }}"
+                                                            >
+                                                                <a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+                                                                   <div data-id="{{order.id}}" class="identixweb_advance_reorder"></div><div data-id="{{order.id}}" class="identixweb_advance_reorder"></div><div data-id="{{order.id}}" class="identixweb_advance_reorder"></div>{{ order.name }}
+                                                                </a>
+                                                            </td>
+                                                            <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
+                                                                {{ order.created_at | time_tag: format: 'date' }}
+                                                            </td>
+                                                            <td headers="RowOrder ColumnPayment" role="cell" data-label="{{ 'customer.orders.payment_status' | t }}">
+                                                                {{ order.financial_status_label }}
+                                                            </td>
+                                                            <td headers="RowOrder ColumnFulfillment" role="cell" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                                                                {{ order.fulfillment_status_label }}
+                                                            </td>
+                                                            <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
+                                                                {{ order.total_price | money_with_currency }}
+                                                            </td>
+                                                            <td headers="RowOrder ColumnTotal" role="cell" data-label="reorder">
+                                                                <div data-id="{{order.id}}" class="identixweb_advance_reorder"></div>
+                                                            </td>
+                                                        </tr>
+                                                    {%- endfor -%}
+                                                </tbody>
+                                            </table>
+                                        {%- else -%}
+                                            <div class="account-desc text-left">
+                                                <svg enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="25" cy="25" fill="none" r="24" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><rect fill="none" height="50" width="50"/><path d="M23.779,16.241c-0.216,0-0.357-0.144-0.357-0.359v-2.618c0-0.215,0.142-0.359,0.357-0.359h2.439  c0.215,0,0.359,0.144,0.359,0.359v2.618c0,0.215-0.145,0.359-0.359,0.359H23.779z M23.852,37.293c-0.215,0-0.358-0.143-0.358-0.358  V20.473c0-0.215,0.144-0.359,0.358-0.359h2.295c0.216,0,0.359,0.144,0.359,0.359v16.462c0,0.216-0.144,0.358-0.359,0.358H23.852z"/></svg> {{ 'customer.orders.none' | t }}
+                                            </div>
+                                        {%- endif -%}
+                                        {%- if paginate.pages > 1 -%}
+                                            {% render 'pagination', paginate: paginate, anchor: '', class: 'order-pagination pagination-wrapper text-center' %}
+                                        {%- endif -%}
+                                    {% endpaginate %}
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-wishlist" role="tabpanel" aria-labelledby="nav-wishlist-tab">
+                                <a class="nav-link whishlist-contnt" id="nav-wishlist-tab" data-toggle="tab" href="/account#swym-wishlist" role="tab" aria-controls="nav-wishlist" aria-selected="false">
+                                  <img src="https://cdn.shopify.com/s/files/1/2400/4439/files/wishlist.svg?v=1693335196">
+                                  Wishlist
+                                </a>
+
+                              <!-- Inside your account page template -->
+                              <div id="wishlist-items">
+                                <!-- Wishlist items will be displayed here -->
+                              </div>
+                              {% comment %}
+                              <!-- <script src="https://swymresources.blob.core.windows.net/shopify-apps/swym-frontend.js"></script>
+                              <script>
+                                SwymGetWishlist({
+                                  customerId: '{{ customer.id }}', // The ID of the currently logged-in customer
+                                  onComplete: function(wishlistItems) {
+                                    var wishlistDiv = document.getElementById('wishlist-items');
+                                    var html = '';
+                              
+                                    wishlistItems.forEach(function(item) {
+                                      // Customize the HTML structure to display wishlist item details
+                                      html += '<div>' + item.title + '</div>';
+                                    });
+                              
+                                    wishlistDiv.innerHTML = html;
+                                  }
+                                });
+                              </script> -->
+                              {% endcomment %}
+                            </div>
+                            <div class="tab-pane fade" id="nav-subscription" role="tabpanel" aria-labelledby="nav-subscription-tab">
+                                <p>Manage My Subscription</p>
+                              <a href="/tools/recurring/login" class="text-link">Go to Subscription</a>
+                            </div>
+                            <div class="tab-pane fade" id="nav-reward" role="tabpanel" aria-labelledby="nav-reward-tab">
+                              <p>Reward List</p>
+                              <!-- Inside your account page template -->
+                                <div id="rewards-items">
+                                    {% if customer %}
+                                    <div 
+                                    id="swell-customer-identification"
+                                    data-authenticated="true"
+                                    data-email="{{ customer.email }}"
+                                    data-id="{{ customer.id }}"
+                                    data-tags="{{ customer.tags | json }}"
+                                    style="display:none;">
+                                    </div>
+                                    {% endif %}
+                                    <p class="h3 mb-40 text-center">You have <strong id="custom-point-balance-ui"></strong> Dermavenue points.</p>
+                                    <div class="yotpo-widget-instance" data-yotpo-instance-id="81861"></div>
+                                        <h4 class="history-title text-center">Your Dermavenue Rewards History</h4>
+                                        <div class="table-responsive">
+                                          <table class="table table-striped table-bordered rewards-history-table">
+                                            <thead>
+                                              <tr>
+                                                <th class="text-left">Date</th>
+                                                <th class="text-left">Action</th>
+                                                <th class="text-center">Points</th>
+                                                <th class="text-right">Status</th>
+                                                <th class="text-right">Reward Expiration</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody id="custom-history-container"></tbody>
+                                          </table>
+                                        </div>
+                                        <br>
+                                        <div class="divider-line"></div>
+                                        <script type="text/javascript">
+                                            document.addEventListener('DOMContentLoaded', function() {
+                                              $(document).on("swell:setup", function(){
+                                          
+                                                var customerDetails = swellAPI.getCustomerDetails();
+                                          
+                                                $("#custom-point-balance-ui").html(customerDetails.pointsBalance);
+                                                $("#custom-referral-link-ui").attr("href", (customerDetails.referralLink));
+                                          
+                                          
+                                                customerDetails.actionHistoryItems.forEach(function(item) {
+                                                  var creationDate = item.date;
+                                                  var creationDateParts = item.date.split('-');
+                                                  var expirationDate = (parseInt(creationDateParts[0], 10) + 1) + '-' + creationDateParts[1] + '-' + creationDateParts[2];
+                                          
+                                                  $("#custom-history-container").append(
+                                                    "<tr>" +
+                                                    "<td>" + item.date   + "</td>" +
+                                                    "<td>" + item.action + "</td>" +
+                                                    "<td>" + item.points + "</td>" +
+                                                    "<td>" + item.status + "</td>" +
+                                                "<td>" + expirationDate + "</td>" +
+                                                    "</tr>"
+                                                  );
+                                          
+                                                });
+                                          
+                                              })
+                                          
+                                            });
+                                        </script>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-help" role="tabpanel" aria-labelledby="nav-help-tab">
+                              <h2 class="title">Help: Customer Service</h2>
+                              <div class="customerHelp">
+                              <ul>
+                              <li>Have a question regarding Unsubscribing from our Emails or Applying discount codes?<br>
+                              Go to our <strong><a href="https://dermavenue.com/pages/frequently-asked-questions-faq" target="_blank">Frequently Asked Questions</a></strong> page.</li>
+                              <li>Get More information about Discount Codes, Processing your orders and more at on our <strong><a href="https://dermavenue.com/pages/terms-and-conditions" target="_blank">Terms & Conditions</a></strong> page.</li>
+                              <li>Need Help with making a Return? Check out our Return Portal <strong><a href="https://dermavenue.com/a/return" target="_blank">Here</a></strong></li>
+                              <li>Update/Change or Modify your Recurring Subscriptions <strong><a href="/tools/recurring/login" class="text-link">Here</a></strong></li>
+                              </ul>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-logout" role="tabpanel" aria-labelledby="nav-logout-tab">
+                                <p>Are you sure you want to logout</p>
+                                <a href="{{ routes.account_logout_url }}" class="btn"> Yes </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

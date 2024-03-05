@@ -1,0 +1,71 @@
+<!-- Sections/custom-product-additional-info.liquid -->
+{% schema %}
+{
+  "name": "Product Additional Info",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Product Handle",
+      "default": "enter-product-handle"
+    },
+    {
+      "type": "image_picker",
+      "id": "info_image",
+      "label": "Info Image"
+    },
+    {
+      "type": "text",
+      "id": "info_title",
+      "label": "Info Title",
+      "default": "In Clinical Studies"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item Title",
+          "default": "Item Title"
+        },
+        {
+          "type": "text",
+          "id": "item_description",
+          "label": "Item Description",
+          "default": "Item Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product Additional Info",
+      "category": "Custom Content"
+    }
+  ]
+}
+{% endschema %}
+{% if product.handle == section.settings.product_handle and section.settings.product_handle != 'not-set' %}
+<div class="b-product_additional_info b-benefits">
+  <div class="b-product_additional_info-inner">
+    <div class="b-product_additional_info-img_wrap">
+      <img alt="{{ section.settings.info_title }}" class="b-product_additional_info-img" src="{{ section.settings.info_image | img_url: '1000x1000' }}">
+    </div>
+    <div class="b-product_additional_info-content">
+      <h3 class="b-product_additional_info-title">{{ section.settings.info_title }}</h3>
+      <ul>
+        {% for block in section.blocks %}
+          <li>
+            <p><strong>{{ block.settings.item_title }}</strong></p>
+            <p>{{ block.settings.item_description }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endif %}

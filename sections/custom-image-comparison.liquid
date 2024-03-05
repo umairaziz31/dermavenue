@@ -1,0 +1,346 @@
+<!-- Sections/custom-image-comparision.liquid-->
+{% schema %}
+{
+  "name": "Custom Image Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Product Handle",
+      "default": "enter-product-handle"
+    },
+    {
+      "type": "text",
+      "id": "caption_text",
+      "label": "Caption Text",
+      "default": "Move the slider to toggle a comparison between two images."
+    },
+    {
+      "type": "text",
+      "id": "title_text",
+      "label": "Title Text",
+      "default": "Content Header"
+    },    
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Before Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "After Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_block",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_heading",
+          "label": "Block Heading",
+          "default": "Comparison or #"
+        },
+        {
+          "type": "textarea",
+          "id": "block_description",
+          "label": "Block Description",
+          "default": "of participants said their eyelashes showed visible improvement*"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Slider",
+      "category": "Text",
+      "blocks": [{"type": "text_block"}]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}
+
+{% if product.handle == section.settings.product_handle and section.settings.product_handle != 'not-set' %}
+<style>
+
+.section-image-comparision {background: #f9f9f9;}
+  
+.image-slider-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+  margin: 30px auto;
+}
+.image-slider-wrapper .caption {
+  padding: 20px;
+  text-align: center;
+}
+
+.image-slider {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 600px;
+  height: 50vh;
+  display: flex;
+  align-content: flex-end;
+}
+.image-slider > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.comparison-img {
+  width: 556px;
+  height: 520px;
+  object-fit: cover; /* This ensures the image covers the area without distorting its aspect ratio */
+}
+.image-slider .comparison-img {
+  display: block;
+  user-select: none;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  max-width: initial;
+  pointer-events: none;
+  object-fit: cover;
+  flex: none;
+}
+.image-slider .top-image {
+  z-index: 10;
+}
+.image-slider .top-image:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  border-right: 5px solid #FFF;
+  z-index: 20;
+}
+.image-slider .handle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  background-color: #666666;
+  height: 80px;
+  border: 8px solid #FFF;
+  z-index: 30;
+  pointer-events: none;
+  margin-left: -2px;
+  overflow: visible;
+}
+.image-slider .handle:before {
+  color: #FFF;
+  content: "";
+  position: absolute;
+  top: 25px;
+  right: -20px;
+  height: 10px;
+  width: 10px;
+  border-bottom: solid 3px currentColor;
+  border-right: solid 3px currentColor;
+  transform: rotate(-45deg);
+  z-index: 99;
+}
+.image-slider .handle:after {
+  color: #FFF;
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -20px;
+  height: 10px;
+  width: 10px;
+  border-left: solid 3px currentColor;
+  border-top: solid 3px currentColor;
+  transform: rotate(-45deg);
+  z-index: 99;
+}
+.image-slider input[type=range] {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0px;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  border: none;
+  z-index: 20;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.image-slider input:focus {
+  outline: none;
+}
+.caption {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.image-slider input .image-slider input[type=range],
+.image-slider input[type=range]::-webkit-slider-runnable-track,
+.image-slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.image-slider input[type=range]::-webkit-slider-thumb {
+  width: 20px;
+  height: 500px;
+  background-color: transparent;
+  cursor: ew-resize;
+  display: block;
+  border: none;
+}
+
+.image-comparision-wrapper {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0 auto;
+}
+
+.image-slider-content {
+    padding: 0 60px 0 50px;
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+    margin: auto;
+}
+
+.comparision-content {
+    padding: 45px 0;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+}
+
+.comparision-content-heading p {
+    flex-shrink: 0;
+    margin: 0 auto 0 0;
+    padding-right: 35px;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.19;
+    text-transform: uppercase;
+    letter-spacing: unset;
+}
+
+.comparision-content-description p {
+    flex-grow: 1;
+    max-width: calc(100% - 10px);
+    font-size: 16px;
+    line-height: 1.375;
+}
+
+.comparision-content:nth-child(2) {
+    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+  .image-slider-content-header h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 1199px) {
+  
+  .image-comparision-wrapper {
+    flex-direction: column-reverse;
+  }
+  .image-slider-content {width: 100%;}
+  .image-slider-content-header h2 {font-size: 2rem;}
+  .comparision-content {padding: 20px 0;}
+  .section-image-comparision {padding: 50px 0;}
+}
+</style>
+
+<div class="section-image-comparision">
+  <div class="container">
+    <div class="image-comparision-wrapper">
+      <div class="image-slider-wrapper">
+        <div class="image-slider">
+          <div class="top-image">
+            <img src="{{ section.settings.image_1 | image_url: width: 556, height: 520 }}" width="556" height="520" class="comparison-img after">
+          </div>
+          <img src="{{ section.settings.image_2 | image_url: width: 556, height: 520 }}" width="556" height="520" class="comparison-img before">
+          <div class="handle"></div>
+          <input type="range" class="range-slider" min="0" max="100" value="50"/>
+        </div>
+      
+        <div class="caption">
+          {{ section.settings.caption_text }}
+        </div>
+      </div>
+      <!-- Loop through and render text blocks -->
+      <div class="image-slider-content">
+        <div class="image-slider-content-header">
+          <h2>{{ section.settings.title_text }}</h2>
+        </div>
+        <div class="comparision-slider-content">
+      {% for block in section.blocks %}
+          <div class="comparision-content">
+            <div class="comparision-content-heading">
+              <p>{{ block.settings.block_heading }}</p>
+            </div>
+            <div class="comparision-content-description">
+              <p>{{ block.settings.block_description }}</p>
+            </div>
+          </div>
+      {% endfor %}
+        </div>
+      </div><!-- /.image-slider-content-->
+    </div>
+  </div><!-- /.container -->
+</div><!-- /.section-image-comparision -->
+
+<script type="text/javascript">
+  function imageSlider(elem) {
+    var imageContainer = elem;
+    var overlay = imageContainer.querySelector(".top-image");
+    var range = imageContainer.querySelector(".range-slider");
+    var images = imageContainer.querySelectorAll(".comparison-img");
+    var handle = imageContainer.querySelector(".handle");
+    images.forEach(function(elem) {
+      elem.style.width = range.offsetWidth + 'px'
+    })
+    range.oninput = function() {
+      if ( this.value > 0 ) {
+        overlay.style.width = this.value + "%";
+        handle.style.left = this.value + "%";
+      } else {
+        overlay.style.width = 'calc(0% + 5px)';
+        handle.style.left = 'calc(0% + 5px)';
+      }
+    }
+  }
+
+  const sliders = document.querySelectorAll('.image-slider-wrapper');
+  function initImageSliders() {
+    for (var i = 0; i < sliders.length; i++) {
+      imageSlider(sliders[i]);
+    }
+  }
+
+  initImageSliders();
+  window.onresize = initImageSliders;
+  window.dispatchEvent(new Event('resize'));
+  window.addEventListener("load", function() {
+    window.dispatchEvent(new Event('resize'));
+  });
+</script>
+{% endif %}

@@ -1,0 +1,67 @@
+<!-- Sections/custom-featured-products.liquid-->
+
+<div class="featured-brands-section">
+  <div class="container">
+    <div class="halo-block-header style--center d-flex flex-align-center flex-jc-between text-center">
+      <div class="title-wrap p-relative d-inline-block pl-lg-80 pr-lg-80 w-100">
+        <h3 class="featured-brands-section-title"><span class="text">FEATURED PRODUCTS</span></h3>
+      </div>
+    </div>
+    <div class="product-list halo-row column-3">
+    {% for block in section.blocks %}
+      {% assign product = block.settings.product %}
+      <div class="product halo-item">
+        <div class="article-card">
+        {% if block.settings.custom_image %}
+          <img src="{{ block.settings.custom_image | image_url: width: 503, height: 503 }}" alt="{{ product.title }}">
+        {% else %}
+          <img class="featured-brands-section-img" src="{{ product.featured_image | image_url: width: 503, height: 503 }}" alt="{{ product.title }}">
+        {% endif %}
+        <div class="article-card__info text-center">
+          <h4 class="article-card__title">{{ product.title }}</h4>
+          <p class="article-card__des">{{ product.description | strip_html | truncatewords: 100 }}</p>
+          <a class="spotlight-button button custom-button-style"  href="{{ product.url }}">View Product</a>
+        </div>
+        </div>
+      </div>
+    {% endfor %}
+      
+    </div><!-- /.product-list.halo-row -->
+  </div><!-- /.container -->
+</div><!--/.featured-brands-section -->
+
+{% schema %}
+{
+  "name": "Custom Featured Products",
+  "blocks": [
+    {
+      "type": "featured_product",
+      "name": "Featured Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Custom Featured Products",
+      "category": "Custom",
+      "blocks": [
+        {"type": "featured_product"},
+        {"type": "featured_product"},
+        {"type": "featured_product"}
+      ]
+    }
+  ]
+}
+{% endschema %}

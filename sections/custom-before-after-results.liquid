@@ -1,0 +1,87 @@
+<!-- Sections/custom-before-after-results.liquid -->
+{% schema %}
+{
+  "name": "Before & After Results",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Product Handle",
+      "default": "enter-product-handle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "results_block",
+      "name": "Results Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "before_image",
+          "label": "Before Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "after_image",
+          "label": "After Image"
+        },
+        {
+          "type": "text",
+          "id": "before_caption",
+          "label": "Before Image Caption",
+          "default": "Baseline"
+        },
+        {
+          "type": "text",
+          "id": "after_caption",
+          "label": "After Image Caption",
+          "default": "Improvements at Week X"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Description text here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Before & After Results",
+      "category": "Custom Content"
+    }
+  ]
+}
+{% endschema %}
+
+{% if product.handle == section.settings.product_handle and section.settings.product_handle != 'not-set' %}
+<section class="b-results">
+  <div class="b-results-inner">
+    <h3 class="b-results-title">Before &amp; After</h3>
+    {% for block in section.blocks %}
+      <div class="b-results-content">
+        <div class="b-results-item m-before">
+          <div class="b-results-image_wrapper" title="Before">
+            <img src="{{ block.settings.before_image | image_url: width: 585 }}" class="b-results-image" alt="{{ block.settings.before_caption }}">
+          </div>
+          <div class="b-results-item_content">
+            <p class="b-results-caption">{{ block.settings.before_caption }}</p>
+          </div>
+        </div>
+        <div class="b-results-item m-after">
+          <div class="b-results-image_wrapper" title="After">
+            <img src="{{ block.settings.after_image | image_url: width: 585 }}" class="b-results-image" alt="{{ block.settings.after_caption }}">
+          </div>
+          <div class="b-results-item_content">
+            <p class="b-results-caption">{{ block.settings.after_caption }}</p>
+          </div>
+        </div>
+      </div>
+      <p class="b-results-description" style="margin: 10px 10% 25px">
+        {{ block.settings.description | escape }}
+      </p>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

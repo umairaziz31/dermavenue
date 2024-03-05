@@ -1,0 +1,34 @@
+<!-- Sections/custom-liquid-code.liquid -->
+{% if product.handle == section.settings.product_handle and section.settings.product_handle != 'not-set' %}
+<div class="customize-section">
+  {{ section.settings.custom_liquid }}
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Custom Liquid Section",
+  "tag": "section",
+  "class": "custom-liquid-code",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Product Handle",
+      "default": "enter-product-handle"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:sections.custom-liquid.settings.custom_liquid.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Liquid Section"
+    }
+  ]
+}
+{% endschema %}
+
+
